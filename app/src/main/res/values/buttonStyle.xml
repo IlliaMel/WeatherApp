@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ButtonStyle">
+
+        <item name="android:layout_width">100sp</item>
+        <item name="android:layout_margin">5sp</item>
+        <item name="android:background">@drawable/button_drawable</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">#323F81</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shape">oval</item>
+        <item name="android:bottomRightRadius">55dp</item>
+        <item name="android:bottomLeftRadius">15dp</item>
+        <item name="android:topRightRadius">15dp</item>
+        <item name="android:topLeftRadius">15dp</item>
+    </style>
+
+</resources>
