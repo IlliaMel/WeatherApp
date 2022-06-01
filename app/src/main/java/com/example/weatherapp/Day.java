@@ -1,24 +1,31 @@
 package com.example.weatherapp;
 
 import java.io.Serializable;
+import java.util.Date;
 
-public class Day implements Serializable {
+public class Day implements Serializable , Comparable<Day> {
 
-    String day, weatherDescription;
-    Integer imageUrl , humidity , temperature;
-    Double visibility , wind;
+    Date day;
+    String weatherDescription , cityName = "Your Location";
+    Integer imageUrl , humidity, pressure;
+    Double  wind,temperature;
 
-    public Day(String day, String weatherDescription, Integer imageUrl, Integer humidity, Double visibility, Double wind , Integer temperature ) {
+    public Day(Date day, String weatherDescription, Integer imageUrl, Integer humidity, Integer pressure, Double wind , Double temperature ) {
         this.day = day;
         this.weatherDescription = weatherDescription;
         this.imageUrl = imageUrl;
         this.humidity = humidity;
-        this.visibility = visibility;
+        this.pressure = pressure;
         this.wind = wind;
         this.temperature = temperature;
     }
 
-    public String getDay() {
+    public Day(String cityName, Date day, String weatherDescription, Integer imageUrl, Integer humidity, Integer pressure, Double wind , Double temperature ) {
+        this(day, weatherDescription, imageUrl, humidity, pressure, wind, temperature);
+        this.cityName = cityName;
+    }
+
+    public Date getDay() {
         return day;
     }
 
@@ -34,13 +41,21 @@ public class Day implements Serializable {
         return humidity;
     }
 
-    public Double getVisibility() {return visibility; }
+    public Integer getPressure() {return pressure; }
 
     public Double getWind() {return wind;   }
 
-    public Integer getTemperature() {
+    public Double getTemperature() {
         return temperature;
     }
 
+    public String getCityName() {
+        return cityName;
+    }
 
+
+    @Override
+    public int compareTo(Day day) {
+        return this.day.compareTo(day.getDay());
+    }
 }
