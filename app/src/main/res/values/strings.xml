@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Weather App</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="location_permission_denied">location permission denied</string>
+    <string name="service_not_available">service not available</string>
+    <string name="invalid_lat_long_used">invalid lat long used</string>
+    <string name="no_address_found">no address found</string>
 </resources>

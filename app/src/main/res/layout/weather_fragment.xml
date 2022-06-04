@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayout"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:background="#F1F0F0"
     android:orientation="vertical">
 
@@ -28,7 +33,7 @@
             android:layout_marginTop="48dp"
             android:text="Search your city"
             android:textColor="#FFFFFF"
-            android:textSize="22sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.076"
             app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +60,7 @@
             android:layout_marginTop="4dp"
             android:text="None"
             android:textColor="#FFFFFF"
-            android:textSize="26sp"
+            android:textSize="23sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/temperature_value"
             app:layout_constraintHorizontal_bias="0.0"
@@ -64,8 +69,9 @@
 
         <ImageView
             android:id="@+id/image_of_details_top"
-            android:layout_width="132dp"
-            android:layout_height="139dp"
+            android:layout_width="119dp"
+            android:layout_height="127dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/name_weather_value_top"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.925"
@@ -86,9 +92,22 @@
             app:layout_constraintTop_toBottomOf="@+id/image_of_details_top"
             app:layout_constraintVertical_bias="1.0" />
 
+        <ProgressBar
+            android:id="@+id/findingLocationPBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="69dp"
+            android:layout_height="65dp"
+            android:layout_marginBottom="48dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/all_days_weather_values"
+            app:layout_constraintEnd_toEndOf="@+id/image_of_details_top"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="@+id/name_weather_value_top" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <EditText
+
         android:id="@+id/search_editText"
         android:layout_width="232dp"
         android:layout_height="35dp"
@@ -262,25 +281,25 @@
         app:srcCompat="@drawable/ic_baseline_location_on_24" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/button_back_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.47"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/main_back_layout"
-            app:layout_constraintVertical_bias="0.109">
+        android:id="@+id/button_back_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_back_layout"
+        app:layout_constraintVertical_bias="0.109">
 
         <LinearLayout
-            android:layout_width="333dp"
-            android:layout_height="56dp"
+            android:layout_width="350dp"
+            android:layout_height="72dp"
             android:gravity="center_horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintVertical_bias="1.0">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/temperature_button"
@@ -299,5 +318,7 @@
 
         </LinearLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
