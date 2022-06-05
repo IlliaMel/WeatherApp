@@ -71,7 +71,6 @@
             android:id="@+id/image_of_details_top"
             android:layout_width="119dp"
             android:layout_height="127dp"
-            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/name_weather_value_top"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.925"
@@ -282,24 +281,25 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/button_back_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="355dp"
+        android:layout_height="419dp"
         android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_back_layout"
-        app:layout_constraintVertical_bias="0.109">
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
-            android:layout_width="350dp"
-            android:layout_height="72dp"
+            android:id="@+id/linear_button_layout"
+            android:layout_width="356dp"
+            android:layout_height="129dp"
             android:gravity="center_horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintVertical_bias="0.0">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/temperature_button"
@@ -318,7 +318,33 @@
 
         </LinearLayout>
 
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/weather_chart"
+            android:visibility="gone"
+            android:layout_width="327dp"
+            android:layout_height="233dp"
+            android:background="@drawable/layout_background_main"
+            android:elevation="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.428"
+            app:layout_constraintStart_toStartOf="@+id/linear_button_layout"
+            app:layout_constraintTop_toBottomOf="@+id/linear_button_layout">
+        </com.github.mikephil.charting.charts.BarChart>
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/progressChart"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="77dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_back_layout"
+        app:layout_constraintEnd_toEndOf="@+id/button_back_layout"
+        app:layout_constraintStart_toStartOf="@+id/button_back_layout"
+        app:layout_constraintTop_toBottomOf="@+id/main_back_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

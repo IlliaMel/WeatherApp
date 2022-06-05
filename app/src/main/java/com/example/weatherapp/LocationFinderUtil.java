@@ -31,16 +31,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class LoactionFinderUtil  {
+public class LocationFinderUtil  {
 
     private Context context;
     private Activity activity;
     private LocationCallback mLocationCallback;
     private FusedLocationProviderClient mFusedLocationClient;
 
+
+
     private static final int REQUEST_LOCATION_PERMISSION = 1;
 
-    public LoactionFinderUtil(Context context, Activity activity , LocationTaskFinder.OnLocationCompleted listener){
+    public LocationFinderUtil(Context context, Activity activity , LocationTaskFinder.OnLocationCompleted listener){
         this.context = context;
         this.activity = activity;
 
@@ -66,8 +68,8 @@ public class LoactionFinderUtil  {
 
     private LocationRequest getLocationRequest() {
         LocationRequest locationRequest = new LocationRequest();
-        //locationRequest.setInterval(400000);
-        //locationRequest.setFastestInterval(10000);
+      //  locationRequest.setInterval(40000000);
+      //  locationRequest.setFastestInterval(1000000);
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         return locationRequest;
     }

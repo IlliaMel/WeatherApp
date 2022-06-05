@@ -22,16 +22,17 @@ public class WeatherTask extends AsyncTask<String, Void, String> {
 
     private Context mContext;
     private OnTaskCompleted mListener;
+    private boolean withCity;
 
-
-    public WeatherTask(Context mContext, OnTaskCompleted listener) {
+    public WeatherTask(Context mContext, OnTaskCompleted listener , boolean withCity) {
         this.mContext = mContext;
+        this.withCity = withCity;
         mListener = listener;
     }
 
     @Override
     protected String doInBackground(String... params) {
-        return NetworkUtils.getWeatherInfo(params[0]);
+        return NetworkUtils.getWeatherInfo(params[0],withCity);
     }
 
     @Override
@@ -47,13 +48,10 @@ public class WeatherTask extends AsyncTask<String, Void, String> {
 
 
 class NetworkUtils {
-    private static final String WEATHER_API = "https://api.openweathermap.org/data/2.5/forecast?q=";
+    private static final String WEATHER_API = "https://api.openweathermap.org/data/2.5/forecast?";
     private static String appid = "412b97072a8f3fa87721cfc2b356b948";
-    private static String lat = "33.44";
-    private static String lon = "-94.04";
-    private static String exclude = "daily";
 // lat=22&lon=42
-    static String getWeatherInfo(String queryString) {
+    static String getWeatherInfo(String queryString, boolean withCity) {
 
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
@@ -65,7 +63,13 @@ class NetworkUtils {
             //https://api.openweathermap.org/data/2.5/weather?q=London,uk&units=metric&APPID=412b97072a8f3fa87721cfc2b356b948
           //https://api.openweathermap.org/data/2.5/onecall?lat=22&lon=42&units=metric&exclude=daily&appid=412b97072a8f3fa87721cfc2b356b948
 //https://api.openweathermap.org/data/2.5/forecast?q=Kiev&appid=412b97072a8f3fa87721cfc2b356b948
-            URL requestURL = new URL(WEATHER_API + queryString + "&units=metric" + "&APPID=" + appid);
+
+            URL requestURL;
+            if(withCity)
+                requestURL = new URL(WEATHER_API + "q=" +  queryString + "&units=metric" + "&APPID=" + appid);
+            else
+                requestURL = new URL(WEATHER_API + "lat=" + queryString.split(" ")[0]  + "&lon=" + queryString.split(" ")[1] + "&units=metric" + "&APPID=" + appid);
+
             urlConnection = (HttpURLConnection) requestURL.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
